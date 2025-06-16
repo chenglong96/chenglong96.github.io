@@ -3,8 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - My Website</title>
+  <title>Wong Cheng Long - Resume</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2em;
+      padding: 1em;
+    }
+
+    .section {
+      margin-bottom: 2em;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.3em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    ul {
+      padding-left: 1.2em;
+    }
+
+    .subheading {
+      font-weight: bold;
+      margin-top: 0.5em;
+    }
+
+    .date-location {
+      font-style: italic;
+      font-size: 0.9em;
+      margin-bottom: 0.5em;
+    }
+
+    .contact-icons a {
+      margin-right: 1em;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    #darkToggle {
+      margin-left: auto;
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.3em 0.6em;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,23 +76,101 @@
     <li><a href="random.html">Random</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
+  <button id="darkToggle"><i class="fas fa-moon"></i></button>
 </nav>
 
 <main>
-  <h1>Projects</h1>
+  <h1>Wong Cheng Long</h1>
+  <p class="contact-icons">
+    <i class="fas fa-location-dot"></i> Singapore &nbsp; |
+    <i class="fas fa-phone"></i> +65 9191 7557 &nbsp; |
+    <i class="fas fa-envelope"></i> <a href="mailto:wongchenglong@gmail.com">Email</a> &nbsp; |
+    <i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/wong-cheng-long/" target="_blank">LinkedIn</a>
+  </p>
 
-  <section>
-    <h2>Exploratory Data Analysis on Telecom Revenue</h2>
-    <p>Dashboard summary and insights from Rakuten wholesale KPI data.</p>
-    <a href="project-notebooks/telecom_revenue_analysis.html" target="_blank">View Full Analysis</a>
-  </section>
+  <div class="section">
+    <h2><i class="fas fa-user"></i> Profile</h2>
+    <p>
+      Dedicated and personable team player with a passion for data analysis and visualization.
+      Experience in creating compelling data visualizations and reports to facilitate informed decision-making for stakeholders.
+      I thrive on problem-solving and continuously seek opportunities to enhance my skills and knowledge to generate valuable insights through data.
+    </p>
+  </div>
 
-  <section>
-    <h2>Roaming Traffic Insights</h2>
-    <p>Used DOMO and Python to analyze and visualize global roaming performance.</p>
-    <a href="project-notebooks/roaming_traffic_analysis.html" target="_blank">View Full Analysis</a>
-  </section>
+  <div class="section">
+    <h2><i class="fas fa-briefcase"></i> Experience</h2>
 
+    <div>
+      <div class="subheading">Product Data Analyst – Rakuten Mobile Inc</div>
+      <div class="date-location">Jul 2022 – Sep 2023</div>
+      <ul>
+        <li>Built financial dashboards & reports for KPIs, accruals, and reconciliations.</li>
+        <li>Automated recurring tasks using Python and Power Automate.</li>
+        <li>Contributed to A2P/P2A, Roaming, and Voice project analytics.</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="subheading">Network Engineer – Rakuten Symphony Singapore</div>
+      <div class="date-location">Feb 2022 – Jul 2022</div>
+      <ul>
+        <li>Resolved roaming issues with root cause analysis.</li>
+        <li>Tested network services and delivered KPI dashboards.</li>
+        <li>Supported bilateral rollout projects and OTA configuration.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-cogs"></i> Skills</h2>
+    <ul>
+      <li>Data Cleaning, Wrangling, Validation, Visualization, Storytelling</li>
+      <li>Problem Solving, Troubleshooting, Root Cause Analysis</li>
+      <li>Solution-oriented, Teamwork, Leadership, Calm under pressure</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+    <ul>
+      <li><strong>Tools:</strong> Power BI, DOMO, Tableau, Excel, Power Query, Power Automate</li>
+      <li><strong>Languages:</strong> Python, C</li>
+      <li><strong>Platforms:</strong> Tomia, Apache Kafka, Data Lakes</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+    <p><strong>Bachelor of Engineering</strong> – School of Electrical & Electronic Engineering</p>
+    <p>Nanyang Technological University, Singapore – Dec 2021</p>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-certificate"></i> Certifications & Awards</h2>
+    <ul>
+      <li>Google Data Analytics Certificate – Coursera (Oct 2022)</li>
+      <li>Tableau DATA Saber – Data Saber (Aug 2022)</li>
+      <li>Domo Professional Certification v2.0 – Domo (Oct 2022)</li>
+      <li>Kudos Award – Rakuten Symphony Singapore (May 2022)</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2><i class="fas fa-heart"></i> Interests</h2>
+    <p>Travel, Music, Food Hunting, Frisbee</p>
+  </div>
 </main>
+
+<script>
+  const toggleBtn = document.getElementById('darkToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleBtn.innerHTML = document.body.classList.contains('dark-mode')
+      ? '<i class="fas fa-sun"></i>'
+      : '<i class="fas fa-moon"></i>';
+  });
+</script>
+
 </body>
 </html>
+
