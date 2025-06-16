@@ -16,19 +16,43 @@
       color: #e0e0e0;
     }
 
-      nav {
+    nav {
       background: #333;
-      padding: 1em;
-      display: flex;
-      justify-content: center;
+      padding: 1em 0;
     }
-    
-    nav ul {
+
+    .nav-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1em;
+    }
+
+    .nav-links {
       list-style: none;
       display: flex;
       gap: 2em;
       margin: 0;
       padding: 0;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    #darkToggle {
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0.3em 0.6em;
+      cursor: pointer;
+      color: white;
     }
 
     .section {
@@ -63,27 +87,35 @@
       text-decoration: none;
       color: inherit;
     }
-
-    #darkToggle {
-      margin-left: auto;
-      background: none;
-      border: 1px solid #ccc;
+    .download-btn {
+      display: inline-block;
+      padding: 0.8em 1.5em;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
       border-radius: 5px;
-      padding: 0.3em 0.6em;
-      cursor: pointer;
+      transition: background 0.3s;
     }
+
+.download-btn:hover {
+  background-color: #0056b3;
+}
+
   </style>
 </head>
 <body>
 
 <nav>
-  <ul>
-    <li><a href="index.html">About</a></li>
-    <li><a href="projects.html">Projects</a></li>
-    <li><a href="random.html">Random</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button id="darkToggle"><i class="fas fa-moon"></i></button>
+  <div class="nav-container">
+    <ul class="nav-links">
+      <li><a href="index.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="random.html">Random</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="darkToggle"><i class="fas fa-moon"></i></button>
+  </div>
 </nav>
 
 <main>
@@ -166,6 +198,13 @@
     <h2><i class="fas fa-heart"></i> Interests</h2>
     <p>Travel, Music, Food Hunting, Frisbee</p>
   </div>
+  
+  <div style="text-align: center; margin: 3em 0;">
+  <a href="Wong_Cheng_Long_Resume.pdf" download class="download-btn">
+    <i class="fas fa-download"></i> Download Resume (PDF)
+  </a>
+</div>
+
 </main>
 
 <script>
