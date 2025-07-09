@@ -1,94 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>torn.report - Dashboard</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-  <div class="container">
-    <h1>Dashboard</h1>
-    <button id="logoutBtn">Logout</button>
+<script>
+window.addEventListener('DOMContentLoaded', async () => {
+  const apiKey = localStorage.getItem('tornApiKey');
+  if (!apiKey) {
+    window.location.href = "index.html";
+    return;
+  }
 
-    <section id="profileSection">
-      <h2>Player Profile</h2>
-      <p><strong>Name:</strong> <span id="playerName"></span></p>
-      <p><strong>Level:</strong> <span id="playerLevel"></span></p>
-      <p><strong>Status:</strong> <span id="playerStatus"></span></p>
-    </section>
+  // Use the user endpoint that returns everything in root
+  const url = `https://api.torn.com/user/?key=${apiKey}`;
 
-    <section id="battlestatsSection">
-      <h2>Battlestats</h2>
-      <canvas id="battlestatsChart" width="400" height="200"></canvas>
-    </section>
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
 
-    <pre id="errorOutput" style="color:red;"></pre>
-  </div>
+    if (data.error) {
+      document.getElementById('errorOutput').textContent = `Error: ${data.error.error}`;
+      return;
+    }
 
-  <script>
-    // On page load
-    window.addEventListener('DOMContentLoaded', async () => {
-      const apiKey = localStorage.getItem('tornApiKey');
-      if (!apiKey) {
-        window.location.href = "index.html";
-        return;
-      }
+    // Populate profile
+    document.getElementById('playerName').textContent = data.name;
+    document.getElementById('playerLevel').textContent = data.level;
+    document.getElementById('playerStatus').textContent = data.status.description;
 
-      const url = `https://api.torn.com/user/?selections=profile,battlestats&key=${apiKey}`;
+    // Chart
+    const ctx = document.getElementById('battlestatsChart').getContext('2d');
+    const labels = ["Strength", "Defense", "Speed", "Dexterity"];
+    const values = [
+      data.strength,
+      data.defense,
+      data.speed,
+      data.dexterity
+    ];
 
-      try {
-        const res = await fetch(url);
-        const data = await res.json();
-
-        if (data.error) {
-          document.getElementById('errorOutput').textContent = `Error: ${data.error.error}`;
-          return;
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Battlestats',
+          data: values,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
         }
-
-        // Populate profile
-        document.getElementById('playerName').textContent = data.profile.name;
-        document.getElementById('playerLevel').textContent = data.profile.level;
-        document.getElementById('playerStatus').textContent = data.profile.status;
-
-        // Populate chart
-        const ctx = document.getElementById('battlestatsChart').getContext('2d');
-        const labels = ["Strength", "Defense", "Speed", "Dexterity"];
-        const values = [
-          data.battlestats.strength,
-          data.battlestats.defense,
-          data.battlestats.speed,
-          data.battlestats.dexterity
-        ];
-
-        new Chart(ctx, {
-          type: 'bar',
-          data: {
-            labels: labels,
-            datasets: [{
-              label: 'Battlestats',
-              data: values,
-              backgroundColor: 'rgba(54, 162, 235, 0.6)'
-            }]
-          },
-          options: {
-            scales: {
-              y: {
-                beginAtZero: true
-              }
-            }
-          }
-        });
-      } catch (err) {
-        document.getElementById('errorOutput').textContent = `Fetch error: ${err}`;
       }
     });
 
-    document.getElementById('logoutBtn').addEventListener('click', () => {
-      localStorage.removeItem('tornApiKey');
-      window.location.href = "index.html";
-    });
-  </script>
-</body>
-</html>
+  } catch (err) {
+    document.getElementById('errorOutput').textContent = `Fetch error: ${err}`;
+  }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  localStorage.removeItem('tornApiKey');
+  window.location.href = "index.html";
+});
+</script>
