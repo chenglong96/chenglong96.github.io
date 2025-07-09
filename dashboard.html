@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>torn.report - Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>torn.report Dashboard</h1>
+    <p><strong>Privacy:</strong> Your API key stays in your browser and only calls Torn API directly.</p>
+    
+    <input type="text" id="apiKeyInput" placeholder="Paste your Torn API key here" />
+    <button id="fetchDataBtn">Load Dashboard</button>
+
+    <section id="profileSection" style="display:none;">
+      <h2>Player Profile</h2>
+      <p><strong>Name:</strong> <span id="playerName"></span></p>
+      <p><strong>Level:</strong> <span id="playerLevel"></span></p>
+      <p><strong>Status:</strong> <span id="playerStatus"></span></p>
+    </section>
+
+    <section id="battlestatsSection" style="display:none;">
+      <h2>Battlestats</h2>
+      <canvas id="battlestatsChart" width="400" height="200"></canvas>
+    </section>
+
+    <pre id="errorOutput" style="color:red;"></pre>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
