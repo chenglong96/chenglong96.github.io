@@ -2,18 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>torn.report</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>torn.report - Login</title>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <h1>torn.report</h1>
-  <p>Enter your Torn API key (stored only in your browser):</p>
-  <input type="text" id="apiKeyInput" placeholder="Paste your API key" />
-  <button onclick="fetchUserProfile()">Fetch Data</button>
+  <div class="container">
+    <h1>torn.report</h1>
+    <p>Enter your Torn API key (stored locally in your browser):</p>
 
-  <pre id="output"></pre>
+    <input type="text" id="apiKeyInput" placeholder="Paste your Torn API key here" />
+    <button id="verifyBtn">Verify & Go to Dashboard</button>
 
-  <script src="js/app.js"></script>
+    <pre id="output"></pre>
+  </div>
+
+  <script>
+    document.getElementById('verifyBtn').addEventListener('click', async () => {
+      const apiKey = document.getElementById('apiKeyInput').value.trim();
+      if (!apiKey) {
+        alert("Please enter your API key.");
+        return;
+      }
+
+      document.getElementById('output').textContent = "Verifying...";
+
+      const url = `https://api.torn.com/user/?selections=profile&key=${apiKey}`;
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+
+        if (data.error) {
+          document.getElementById('output').textContent = `Error: ${data.error.error}`;
+        } else {
+          // Store the key in localStorage
+          localStorage.setItem('tornApiKey', apiKey);
+          // Redirect to dashboard
+          window.location.href = "dashboard.html";
+        }
+      } catch (err) {
+        document.getElementById('output').textContent = `Fetch error: ${err}`;
+      }
+    });
+  </script>
 </body>
 </html>
