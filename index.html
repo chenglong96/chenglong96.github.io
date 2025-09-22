@@ -14,14 +14,32 @@
     }
     h1, h2, h3 {
       color: #333;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 30px;
     }
     figure {
-      margin: 20px 0;
+      margin: 20px auto;
       text-align: center;
+    }
+    figure img {
+      max-width: 80%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
     figcaption {
       font-size: 0.9em;
       color: #555;
+      margin-top: 5px;
     }
     .abstract {
       background: #f0f0f0;
@@ -34,6 +52,7 @@
 <body>
 
   <h1>New Player Retention in Torn</h1>
+  <div class="subtitle">Done by CL</div>
 
   <div class="abstract">
     <h2>Abstract</h2>
@@ -92,7 +111,6 @@
     <figcaption>Figure 5. Accounts stratified by level and status. Zoomed in the area displaying active accounts.</figcaption>
   </figure>
 
-
-
 </body>
 </html>
+
