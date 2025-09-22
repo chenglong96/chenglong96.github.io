@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Player Retention in Torn</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: #fafafa;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    figure {
+      margin: 20px 0;
+      text-align: center;
+    }
+    figcaption {
+      font-size: 0.9em;
+      color: #555;
+    }
+    .abstract {
+      background: #f0f0f0;
+      padding: 15px;
+      border-left: 4px solid #555;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>New Player Retention in Torn</h1>
+
+  <div class="abstract">
+    <h2>Abstract</h2>
+    <p><strong>Purpose:</strong> New player retention and engagement are crucial elements for any online video game. Without a stable number of newly registered accounts, multiplayer games centered around community and player interaction are bound to become abandoned and fail. In this study, I aim to evaluate the new player retention rate of an online role-playing game called Torn.</p>
+
+    <p><strong>Study design:</strong> Using publicly available information, I have analysed 367,078 player accounts created between July 1 2023 and July 1 2024.</p>
+
+    <p><strong>Results:</strong> The first few days of gameplay are crucial for player retention. Over the first couple of months, player retention rate steadily decreases, eventually settling down around 18–20% after the first year. Level seems to be another important factor when it comes to players staying in the game — majority of players quitting do so before reaching level 15, an important milestone in the Torn gameplay loop.</p>
+
+    <p><strong>Conclusions:</strong> My findings highlight potential shortfalls of the game design and provide some basic guidelines when considering potential recruits for new members when forming in-game groups (factions).</p>
+  </div>
+
+  <h2>Introduction</h2>
+  <p>Video games are a common pastime activity in today's society. According to survey data, single-player games are overwhelmingly more popular than multiplayer games [1]. This is not entirely unexpected, as multiplayer games are usually more complex and require a larger time investment due to their inherent competitive nature...</p>
+
+  <h2>Materials and Methods</h2>
+  <h3>Study population</h3>
+  <p>For this analysis, all accounts between IDs 2975573 and 3342765 were analysed using Torn's official API...</p>
+
+  <h3>Data collection and analysis</h3>
+  <p>All data was collected between July 24th and July 26th, 2024, using a Raspberry Pi 5 with a Broadcom BCM2712 quad-core Arm Cortex A76 processor @ 2.4GHz and 8 GB of RAM. Custom R scripts were used for data gathering, analysis and visualisation [4].</p>
+
+  <h2>Results</h2>
+
+  <h3>Most new accounts are fake</h3>
+  <p>Original study data included 367,078 accounts. However, after closer inspection, it became evident that at least half of these accounts (50.34%, 184,792) are either created by bots or some other artificial means...</p>
+
+  <figure>
+    <img src="0e07cbe9-99c7-474a-b1ea-6fb1f5cc53fa-1906686.png" alt="Figure 1">
+    <figcaption>Figure 1. Number of new accounts created over the period of one year based on defined filtering criteria.</figcaption>
+  </figure>
+
+  <h3>Player retention rate drops off early, but stabilises later on</h3>
+  <p>Looking at the accounts with over 1 hour of play time, we can see that initially player retention rate appears rather high...</p>
+
+  <figure>
+    <img src="776f8f85-6fbe-44ca-a5e4-7f0737b2cd0c-1906686.png" alt="Figure 2">
+    <figcaption>Figure 2. Relationship between account age and activity status represented in raw numbers (A) and percentage values (B).</figcaption>
+  </figure>
+
+  <figure>
+    <img src="3e4c4c00-3e19-40a7-a81b-6b2fe2d2ad2d-1906686.png" alt="Figure 3">
+    <figcaption>Figure 3. A closer look at active player percentage decrease over time.</figcaption>
+  </figure>
+
+  <h3>Most players quit early</h3>
+  <p>While the data above looks at players who have already played almost a full month of the game, a different picture comes up when investigating the age at which player accounts become inactive...</p>
+
+  <figure>
+    <img src="fceedc76-0557-47fa-8db6-69a544627cfe-1906686.png" alt="Figure 4">
+    <figcaption>Figure 4. Histogram showing after how many days of logging in most players quit the game.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="0d62fb3a-9334-4595-bda9-6f38c4645370-1906686.png" alt="Figure 5">
+    <figcaption>Figure 5. Accounts stratified by level and status. Zoomed in the area displaying active accounts.</figcaption>
+  </figure>
+
+  <h2>Discussion</h2>
+  <p>Having high new player retention is crucial for any multiplayer game — an active player base is an online game's foundation. Torn is no exception and based on this analysis...</p>
+
+  <h2>References</h2>
+  <ol>
+    <li>Survey data on gaming preferences.</li>
+    <li>Torn official website.</li>
+    <li>Torn API documentation.</li>
+    <li>Custom R scripts for data analysis.</li>
+    <li>Official Torn statistics.</li>
+  </ol>
+
+</body>
+</html>
